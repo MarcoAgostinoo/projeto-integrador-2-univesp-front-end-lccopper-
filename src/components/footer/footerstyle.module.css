@@ -1,0 +1,150 @@
+/* footerstyle.module.css */
+
+/* Footer Area */
+.footerArea {
+  width: 100%;
+  background-color: #1c1c1c;
+  color: white;
+  margin-top: 80px;
+  padding-top: 40px;
+  height: auto;
+}
+
+/* Footer Middle */
+.footerMiddle {
+  border-bottom: 2px solid #444444f0;
+  padding-bottom: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col {
+  flex: 1;
+  min-width: 250px; /* Minimal width for responsiveness */
+  margin: 15px;
+}
+
+
+.description p {
+  margin: 10px 0;
+}
+
+/* Social Icons */
+.socialIcons {
+  margin-top: 10px;
+}
+
+.socialIcons a {
+  color: #f39c12;
+  margin-right: 10px;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.socialIcons a:hover {
+  color: #e67e22;
+}
+
+/* Useful Links */
+.usefulLinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.usefulLinks li {
+  margin: 8px 0;
+}
+
+.usefulLinks a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.usefulLinks a:hover {
+  color: #f39c12;
+}
+
+/* Contact Information */
+.contact {
+  .footer-widget {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .footer-widget i {
+    color: #f39c12;
+  }
+
+  .contact-info {
+    margin-top: 10px;
+  }
+
+  .contact-info p {
+    margin: 5px 0;
+  }
+
+  .contact-info a {
+    color: #f39c12;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-info a:hover {
+    color: #e67e22;
+  }
+}
+
+/* Services */
+.services {
+  margin-top: 20px;
+}
+
+.serviceItem {
+  margin: 8px 0;
+}
+
+/* Footer Bottom */
+.footerBottom {
+  padding: 20px 0;
+  background-color: #111;
+}
+
+.copyRight {
+  font-size: 14px;
+  text-align: center;
+}
+
+.footerMenu {
+  text-align: center;
+}
+
+.footerMenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerMenu li {
+  display: inline;
+  margin-left: 15px;
+}
+
+.footerMenu a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footerMenu a:hover {
+  color: #f39c12;
+}

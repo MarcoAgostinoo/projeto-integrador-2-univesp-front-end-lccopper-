@@ -1,0 +1,94 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  /* Facilita o controle do tamanho dos elementos */
+}
+
+.break {
+  display: block;
+}
+/* Aplica a sombra em todos os elementos de texto no site */
+
+
+
+/* Define a fonte padrão e a cor do texto */
+body {
+  font-family: Arial, sans-serif, 'Courier New', Courier, monospace;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Remove o estilo padrão de listas */
+ul,
+ol {
+  list-style: none;
+  /* Remove marcadores */
+}
+
+/* Remove a decoração padrão de links */
+a {
+  text-decoration: none;
+  /* Remove sublinhados */
+  color: inherit;
+  /* Faz os links herdar a cor do texto pai */
+}
+
+/* Define uma regra para elementos de cabeçalho */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  /* Remove a margem padrão dos cabeçalhos */
+}
+
+/* Define regras para tabelas */
+table {
+  border-collapse: collapse;
+  /* Remove espaços entre células */
+  width: 100%;
+  /* Faz as tabelas ocuparem 100% da largura do contêiner */
+}
+
+/* Define regras para imagens */
+img {
+  max-width: 100%;
+  /* Faz com que imagens não excedam a largura do contêiner */
+  height: auto;
+  /* Mantém a proporção da imagem */
+}
+
+/* Define regras para formulários */
+input,
+textarea,
+select {
+  font-family: inherit;
+  /* Faz os inputs usarem a mesma fonte do body */
+  font-size: inherit;
+  /* Faz os inputs usarem o mesmo tamanho de fonte do body */
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Regras adicionais para garantir uma boa acessibilidade */
+:focus {
+  outline: 2px solid blue;
+  /* Destaca elementos focados */
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    color: white;
+    background: black;
+  }
+}
