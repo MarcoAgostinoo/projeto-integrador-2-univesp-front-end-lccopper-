@@ -1,6 +1,6 @@
-# Projeto Integrador 3 - UNIVESP
+# Projeto Integrador 2 - UNIVESP
 
-Este repositório contém o frontend do **Projeto Integrador 3** do curso de Tecnologia da Informação da Universidade Virtual do Estado de São Paulo (UNIVESP). O projeto foi desenvolvido para a empresa **LC Copper Metalúrgica**, com o objetivo de modernizar sua presença digital, facilitar o contato com clientes e candidatos, e apresentar seu catálogo de produtos e serviços.
+Este repositório contém o frontend do **Projeto Integrador 2** do curso de Tecnologia da Informação da Universidade Virtual do Estado de São Paulo (UNIVESP). O projeto foi desenvolvido para a empresa **LC Copper Metalúrgica**, com o objetivo de modernizar sua presença digital, facilitar o contato com clientes e candidatos, e apresentar seu catálogo de produtos e serviços.
 
 ## Integrantes do Grupo
 - Frances Rodrigo de Oliveira
@@ -116,4 +116,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Felizes são aqueles que lembram na alegria de agradecer, pois ignorar o bem é esquecer-se da própria vida.
+- Felizes são aqueles que lembram na alegria de agradecer, pois ignorar o bem é esquecer-se da própria vida.
