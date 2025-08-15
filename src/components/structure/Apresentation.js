@@ -39,7 +39,7 @@ export default function Apresentation() {
             Fixos e Flexíveis, Pinças e Dispositivos para soldagem por resistência e projeção.
           </p>
           <h5 className="text-primary">Clique no botão abaixo e entre em contato com a nossa equipe para conhecer nossas soluções personalizadas!</h5>
-          <Link href="https://api.whatsapp.com/send?l=pt&phone=5511996016574" target="_blank" className={styles.ctaButton}>
+          <Link href="https://api.whatsapp.com/send?l=pt&phone=551146760398" target="_blank" className={styles.ctaButton}>
             <button className="btn btn-primary btn-lg mt-4">Clique aqui</button>
           </Link>
         </div>

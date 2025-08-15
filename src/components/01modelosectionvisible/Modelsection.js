@@ -19,7 +19,7 @@ export default function Modelsection () {
       
       <div className="row align-items-center justify-content-center">
         <div className="col-md-6 col-12 text-center text-md-left">
-          <a href="https://api.whatsapp.com/send?l=pt&phone=5511996016574" target="_blank" className={styles.ctaButton}>
+          <a href="https://api.whatsapp.com/send?l=pt&phone=551146760398" target="_blank" className={styles.ctaButton}>
           <button className="btn btn-primary btn-lg mt-4">Clique aqui</button>
           </a>
         </div>

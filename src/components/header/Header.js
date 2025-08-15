@@ -11,7 +11,7 @@ export default function Bannertop() {
         {/* Exibir este bloco apenas quando não rolou */}
         {!isScrolled && (
           <p>
-            <i className="fa fa-whatsapp"></i> Fale por whatsapp: <a href="https://api.whatsapp.com/send?l=pt&phone=5511996016574">(11) 99601-6574</a>
+            <i className="fa fa-whatsapp"></i> Fale por whatsapp: <a href="https://api.whatsapp.com/send?l=pt&phone=551146760398">(11) 4676-0398</a>
           </p>
         )}
         {!isScrolled && (
@@ -83,7 +83,7 @@ export default function Bannertop() {
       </nav>
 
       {/* Ícone do WhatsApp */}
-      <a href="https://wa.me/5511996016574?text= Olá, tudo bem?" target="_blank">
+      <a href="https://wa.me/551146760398?text= Olá, tudo bem?" target="_blank">
         <img src="/whatsiconn.webp" className={styles.whatsicon} alt="" />
       </a>
 

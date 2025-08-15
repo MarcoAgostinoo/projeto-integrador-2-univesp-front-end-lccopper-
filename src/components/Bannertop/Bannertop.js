@@ -47,8 +47,8 @@ export default function Bannertop() {
                   <ul className={styles.listbutton}>
                     {index === 0 && (
                       <>
-                        <li> 
-                          <Link href="https://api.whatsapp.com/send?l=pt&phone=5511996016574" target="_blank" rel="noopener noreferrer">
+                        <li>
+                          <Link href="https://api.whatsapp.com/send?l=pt&phone=551146760398" target="_blank" rel="noopener noreferrer">
                             <button type="button" className="btn btn-success">Solicite um Orçamento</button>
                           </Link>
                         </li>

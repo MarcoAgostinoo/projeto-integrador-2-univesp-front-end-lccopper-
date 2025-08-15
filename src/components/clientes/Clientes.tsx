@@ -35,7 +35,7 @@ export default function Clientes() {
         <h3 className="text-primary">Pronto para fazer parte da nossa rede de clientes?</h3>
         <p className="text-muted">Entre em contato e descubra como podemos impulsionar o sucesso do seu projeto com soluções personalizadas e inovadoras.</p>
         
-        <Link href="https://api.whatsapp.com/send?l=pt&phone=5511996016574" target="_blank" passHref>
+        <Link href="https://api.whatsapp.com/send?l=pt&phone=551146760398" target="_blank" passHref>
           <button className="btn btn-primary btn-lg mt-3">
             Fale com nossa equipe
           </button>
