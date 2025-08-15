@@ -75,8 +75,8 @@ O sistema é uma aplicação web desenvolvida em **Next.js** (React), com integr
 
 ## Contato
 - **Site:** [www.lccopper.com](http://www.lccopper.com/)
-- **Telefone:** (11) 4676-0398 / (11) 4676-3092 / (11) 4678-0506
-- **E-mail:** comercial@lccopper.com.br
+- **Telefone:** (11) 4676-0398 / (11) 4676-3092 / (11) 4678-0506 
+- **E-mail:**  comercial@lccopper.com.br
 - **Endereço:** Rua São João, 200 | Jardim Soeiro, Ferraz de Vasconcelos - SP, CEP 08540-200
 
 ---
