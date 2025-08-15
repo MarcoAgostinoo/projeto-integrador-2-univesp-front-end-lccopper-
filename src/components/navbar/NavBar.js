@@ -40,8 +40,12 @@ export default function NavBar() {
           <a href="tel:+551146760398" className={styles.contactItem}>
             <FaPhone /> (11) 4676-0398
           </a>
-          <a href="https://wa.me/551146763092" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+          
+          {/* <a href="https://wa.me/551146763092" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
             <FaWhatsapp /> (11) 4676-3092
+          </a> */}
+          <a href="tel:+551146763092" className={styles.contactItem}>
+            <FaPhone /> (11) (11) 4676-3092
           </a>
           <a href="tel:+551146780506" className={styles.contactItem}>
             <FaPhone /> (11) 4678-0506
