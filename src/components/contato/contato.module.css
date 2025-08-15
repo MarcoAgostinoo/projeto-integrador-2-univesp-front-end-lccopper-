@@ -1,0 +1,129 @@
+.container {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+.contatoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.contatoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 48%;
+  margin-bottom: 2rem;
+}
+
+.imageContainer {
+  margin-bottom: 10px;
+}
+
+.contatoItem h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #2a8ff3;
+}
+
+.contatoItem p,
+.contatoItem a {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.contatoItem a {
+  text-decoration: none;
+  color: blue;
+}
+
+.contatoItem a:hover {
+  transform: translateY(-5px);
+  background-color: yellow;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.linkContainer {
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(10, 0, 87);
+}
+
+.link {
+  border: 1px solid rgba(22, 1, 1, 0.514);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formLabel {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.formInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.formButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.formButton:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .contatoContainer {
+    flex-direction: column;
+  }
+
+  .contatoItem {
+    width: 100%;
+  }
+}

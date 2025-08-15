@@ -1,0 +1,33 @@
+.catalogContainer {
+  margin: 100px auto;
+  text-align: center;
+}
+
+.catalogTitle {
+  font-size: 35px;
+  color: #0c72c6;
+  margin-bottom: 40px;
+}
+
+.productCard {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.productCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.productImage {
+  border-radius: 10px 10px 0 0; /* Rounded corners for the image */
+}
+
+@media (max-width: 768px) {
+  .catalogTitle {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}
