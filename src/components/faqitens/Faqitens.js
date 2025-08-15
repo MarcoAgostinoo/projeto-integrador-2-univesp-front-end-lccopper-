@@ -31,7 +31,7 @@ export default function Faqitens () {
                                 },
                                 {
                                     question: "Como posso entrar em contato com a empresa?",
-                                    answer: "Você pode entrar em contato através do telefone (11) 4676-0398 ou pelo email eduardo@lccopper.com.br."
+                                    answer: "Você pode entrar em contato através do telefone (11) 4676-0398 ou pelo email comercial@lccopper.com.br."
                                 },
                                 {
                                     question: "Vocês possuem certificação de qualidade?",

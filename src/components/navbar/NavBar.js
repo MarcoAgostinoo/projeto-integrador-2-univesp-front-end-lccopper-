@@ -36,7 +36,7 @@ export default function NavBar() {
     <nav className={styles.navbar}>
       <div className={`${styles.topBar} ${scrolled ? styles.hidden : ''}`}>
         <div className={styles.contactInfo}>
-          <span className={styles.contactName}>Contato LcCopper - Comercial</span>
+          <span className={styles.contactName}>Contato LC Copper - Comercial</span>
           <a href="tel:+551146760398" className={styles.contactItem}>
             <FaPhone /> (11) 4676-0398
           </a>
