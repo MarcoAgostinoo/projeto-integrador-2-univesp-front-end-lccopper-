@@ -3,86 +3,362 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #f9f9f9; /* Fundo claro */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.vagasContainer {
+    width: 100%;
+    max-width: 1400px;
+    padding: 40px 20px;
+    margin: 0 auto;
+}
+
+.pageHeader {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 0;
+}
+
+.pageTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.pageTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border-radius: 2px;
+}
+
+.pageSubtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 .vagasList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid responsivo */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
     width: 100%;
-    max-width: 1200px; /* Limitar a largura */
+    margin-bottom: 80px;
 }
 
 .vagaCard {
-    background-color: #ffffff; /* Fundo branco para os cards */
-    border: 1px solid #ddd; /* Borda leve */
-    border-radius: 8px; /* Bordas arredondadas */
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    transition: transform 0.3s; /* Efeito de transição */
+    background: #ffffff;
+    border: none;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border-left: 5px solid #3498db;
+}
+
+.vagaCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 .vagaCard:hover {
-    transform: translateY(-5px); /* Efeito hover */
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.vagaCard:hover::before {
+    transform: scaleX(1);
 }
 
 .vagaTitle {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333; /* Cor do texto */
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    line-height: 1.3;
 }
 
-.vagaDescription,
-.vagaRequisitos,
-.vagaSalario,
-.vagaLocalizacao {
-    margin: 5px 0;
-    color: #555; /* Cor do texto secundário */
+.vagaDescription {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #5a6c7d;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.vagaInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.vagaInfoItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #3498db;
+}
+
+.vagaInfoIcon {
+    width: 20px;
+    height: 20px;
+    color: #3498db;
+    flex-shrink: 0;
+}
+
+.vagaInfoText {
+    font-size: 0.95rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.vagaInfoLabel {
+    font-weight: 600;
+    color: #3498db;
+    margin-right: 8px;
+}
+
+.applicationSection {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.applicationHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.applicationTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.applicationSubtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
 }
 
 .applicationForm {
-    background-color: #ffffff; /* Fundo branco */
-    border: 1px solid #ddd; /* Borda leve */
-    border-radius: 8px; /* Bordas arredondadas */
-    padding: 20px;
-    margin-top: 20px;
-    width: 70vw;
-    max-width: 600px; /* Largura máxima do formulário */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.formGroup {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaçamento entre os campos */
+    gap: 8px;
 }
 
-.applicationForm h2 {
-    margin-bottom: 10px;
-    color: #333; /* Cor do título */
+.formGroup.fullWidth {
+    grid-column: 1 / -1;
 }
 
-.applicationForm input {
-    padding: 10px;
-    border: 1px solid #ccc; /* Borda dos campos */
-    border-radius: 5px; /* Bordas arredondadas */
+.formLabel {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.formInput {
+    padding: 15px 18px;
+    border: 2px solid #e1e8ed;
+    border-radius: 12px;
     font-size: 1rem;
-    color: #555; /* Cor do texto */
+    color: #2c3e50;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
 
-.applicationForm button {
-    padding: 10px;
-    background-color: #007bff; /* Cor do botão */
-    color: white; /* Cor do texto do botão */
-    border: none;
-    border-radius: 5px; /* Bordas arredondadas */
+.formInput:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.formInput::placeholder {
+    color: #95a5a6;
+}
+
+.fileInputContainer {
+    position: relative;
+    grid-column: 1 / -1;
+}
+
+.fileInput {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
 }
 
-.applicationForm button:hover {
-    background-color: #0056b3; /* Cor do botão ao passar o mouse */
-}
 .fileLabel {
-    margin-top: 10px;
-    color: #555; /* Cor do texto */
-    font-size: 0.9rem; /* Tamanho da fonte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border: 2px dashed #3498db;
+    border-radius: 12px;
+    background: #f8f9fa;
+    color: #3498db;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.fileLabel:hover {
+    background: #e3f2fd;
+    border-color: #2980b9;
+}
+
+.fileLabel.dragover {
+    background: #e3f2fd;
+    border-color: #2980b9;
+    transform: scale(1.02);
+}
+
+.submitButton {
+    grid-column: 1 / -1;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
+.submitButton:hover::before {
+    left: 100%;
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+.loadingSpinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.successMessage {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #c3e6cb;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.errorMessage {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .pageTitle {
+        font-size: 2.2rem;
+    }
+    
+    .vagasList {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .applicationForm {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .applicationSection {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .vagaCard {
+        padding: 25px;
+    }
 }
