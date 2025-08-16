@@ -1,126 +1,62 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import Image from 'next/image';
+import React, { useRef } from "react";
+import { FaBullseye, FaCog, FaBolt } from 'react-icons/fa';
 import styles from './section1.module.css';
 
-export default function Section1() {
-    const [designValue, setDesignValue] = useState(0);
-    const [flexibilityValue, setFlexibilityValue] = useState(0);
-    const [responseRateValue, setResponseRateValue] = useState(0);
+function Section1() {
     const sectionRef = useRef(null);
-    const isVisibleRef = useRef(false);
-
-    // Função de easing que desacelera ainda mais
-    const easeOutQuad = (t) => {
-        return t * (2 - t);
-    };
-
-    useEffect(() => {
-        const animateValue = (start, end, setter, duration = 3000) => {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const easedProgress = easeOutQuad(progress);
-                setter(Math.floor(easedProgress * (end - start) + start));
-                if (progress < 1 && isVisibleRef.current) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        };
-
-        const handleIntersection = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    isVisibleRef.current = true;
-                    animateValue(0, 96, setDesignValue);
-                    animateValue(0, 87, setFlexibilityValue);
-                    animateValue(0, 94, setResponseRateValue);
-                } else {
-                    isVisibleRef.current = false;
-                    setDesignValue(0);
-                    setFlexibilityValue(0);
-                    setResponseRateValue(0);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(handleIntersection, {
-            threshold: 0.1
-        });
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, []);
 
     return (
-        <div ref={sectionRef} className={`${styles.section1} container-fluid`}>
+        <div ref={sectionRef} className={`${styles.sectionContainer} container-fluid`}>
+            {/* Seção de Texto Principal */}
             <div className='row'>
-                <div className='col-12 mt-4 text-center'>
-                    <h1 className='text-primary fw-bold'>Nossa Missão</h1>
+                <div className='col-12 text-center'>
+                    <h1 className={styles.mainTitle}>
+                        Resultados Concretos para a Indústria de Ponta
+                    </h1>
                 </div>
-                <div className='col-12 mt-4 fw-bold text-center text-primary'>
-                    <p className='text-secondary'>
-                        Com quase 25 anos de experiência no mercado, a LC Copper é especializada em reposição de solda por resistência,
-                        usinagem de materiais ferrosos e não ferrosos, atendendo as principais montadoras de veículos leves e pesados do Brasil.
-                        Nosso compromisso com qualidade e eficiência se reflete em soluções completas para soldagem a ponto, projeção, costura e
-                        topo a topo, oferecendo produtos e serviços que superam as expectativas dos nossos clientes. Nossas instalações abrangem
-                        uma área total de 5000 m², equipadas com alta tecnologia para garantir precisão e inovação em cada projeto.
+                <div className='col-12 mt-4 text-center'>
+                    <p className={styles.mainParagraph}>
+                        Há mais de 25 anos, a LC Copper é a parceira estratégica das principais montadoras e indústrias do Brasil. Nossa expertise em soluções industriais de alta performance e uma estrutura de 5.000 m² equipada com tecnologia de ponta nos permitem entregar confiança e inovação para os projetos mais desafiadores. Elevamos o padrão de qualidade e competitividade do seu negócio, garantindo que sua empresa esteja sempre à frente no mercado.
                     </p>
                 </div>
             </div>
-            <div className={`container-fluid ${styles.footer}`}>
-                <div className='row text-center d-flex justify-content-around mt-5'>
-                    <div className={`${styles.cols3} col-12 col-md-3 text-center position-relative`}>
-                        <Image
-                            src='/circle.png'
-                            alt="Soldagem de Precisão"
-                            className='img-fluid mt-5'
-                            width={500}
-                            height={300}
-                        />
-                        <h1 className={`text-primary position-absolute top-50 start-50 translate-middle ${styles.customFontSize}`}>
-                            {designValue}%
-                        </h1>
-                        <h2 className='mt-1'>Precisão em Soldagem</h2>
+
+            {/* Seção de Benefícios */}
+            <div className='row justify-content-center mt-5'>
+                <div className={`col-12 col-md-4 text-center ${styles.benefitCard}`}>
+                    <div className={styles.iconContainer}>
+                        <FaBullseye className={styles.benefitIcon} />
                     </div>
-                    <div className={`${styles.cols3} col-12 col-md-3 text-center position-relative`}>
-                        <Image
-                            src='/circle.png'
-                            alt="Flexibilidade em Processos"
-                            className='img-fluid mt-5'
-                            width={500}
-                            height={300}
-                        />
-                        <h1 className={`text-primary position-absolute top-50 start-50 translate-middle ${styles.customFontSize}`}>
-                            {flexibilityValue}%
-                        </h1>
-                        <h2 className='mt-1'>Flexibilidade em Processos</h2>
+                    <h2 className={styles.cardTitle}>Precisão Inquestionável</h2>
+                    <p className={styles.cardText}>
+                        Garantimos a conformidade e a performance que seu projeto exige, minimizando riscos e otimizando custos. Nossa atenção aos detalhes é o pilar da sua tranquilidade.
+                    </p>
+                </div>
+
+                <div className={`col-12 col-md-4 text-center ${styles.benefitCard}`}>
+                    <div className={styles.iconContainer}>
+                        <FaCog className={styles.benefitIcon} />
                     </div>
-                    <div className={`${styles.cols3} col-12 col-md-3 text-center position-relative`}>
-                        <Image
-                            src='/circle.png'
-                            alt="Agilidade no Atendimento"
-                            className='img-fluid mt-5'
-                            width={500}
-                            height={300}
-                        />
-                        <h1 className={`text-primary position-absolute top-50 start-50 translate-middle ${styles.customFontSize}`}>
-                            {responseRateValue}%
-                        </h1>
-                        <h2 className='mt-1'>Agilidade no Atendimento</h2>
+                    <h2 className={styles.cardTitle}>Flexibilidade Estratégica</h2>
+                    <p className={styles.cardText}>
+                        Adaptamos nossas soluções para atender às demandas únicas do seu negócio, integrando-nos perfeitamente às suas operações e metas.
+                    </p>
+                </div>
+
+                <div className={`col-12 col-md-4 text-center ${styles.benefitCard}`}>
+                    <div className={styles.iconContainer}>
+                        <FaBolt className={styles.benefitIcon} />
                     </div>
+                    <h2 className={styles.cardTitle}>Agilidade para Crescer</h2>
+                    <p className={styles.cardText}>
+                        Com processos otimizados e uma equipe dedicada, oferecemos um atendimento rápido e eficiente, acelerando o ciclo de seus projetos e o crescimento da sua empresa.
+                    </p>
                 </div>
             </div>
         </div>
     );
 }
+
+export default Section1;

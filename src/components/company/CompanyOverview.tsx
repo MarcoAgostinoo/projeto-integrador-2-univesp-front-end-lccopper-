@@ -1,72 +1,108 @@
-import React from 'react';
-import { Building, GraphUp, Gear, Tools, Bezier2, Lightning, Award, People, Envelope } from 'react-bootstrap-icons';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './companyOverview.module.css';
+// CompanyOverview.tsx
+import React from "react";
+import Link from "next/link";
+import { Building, GraphUp, Gear, Tools, Bezier2, Lightning, Award, People } from "react-bootstrap-icons";
+import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./companyOverview.module.css";
 
-const CompanyOverview: React.FC = () => {
+export default function CompanyOverview() {
   return (
-    <div className={`${styles.companyOverview} container-fluid py-5`}>
-      <div className="row justify-content-center">
-        <div className="col-md-10">
-          <h1 className={`${styles.mainTitle} text-center mb-5`}>
-            <Building className={styles.icon} /> LC COPPER METALÚRGICA LTDA.
-          </h1>
-          <p className={`${styles.subtitle} text-center mb-5`}>Transformando metal em soluções inovadoras há quase 25 anos.</p>
-          
-          <div className="row">
-            <div className="col-md-6 mb-4">
-              <div className={`${styles.infoCard} card h-100`}>
-                <div className="card-body">
-                  <h2 className={`${styles.cardTitle} card-title`}><GraphUp className={styles.icon} /> Excelência em Metalurgia</h2>
-                  <p className="card-text">Especializados em ligas de cobre e suas aplicações, oferecemos soluções únicas para desafios complexos na indústria automotiva e além.</p>
-                </div>
+    <div className={styles.companyContainer}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className="container">
+          <div className="row align-items-center min-vh-75">
+            <div className="col-lg-12 text-center">
+              <span className={styles.heroBadge}>25 anos de excelência</span>
+              <h1 className={styles.heroTitle}>
+                <Building style={{ verticalAlign: 'middle' }} />
+                <span> LC Copper Metalúrgica Ltda.</span>
+              </h1>
+              <p className={styles.heroSubtitle}>
+                Transformando metal em soluções inovadoras para a indústria.
+              </p>
+              <div className={styles.heroButtons}>
+                <Link href="/contato" className={`btn ${styles.primaryBtn}`}>
+                  Fale Conosco
+                </Link>
+                <Link href="#beneficios" className={`btn ${styles.secondaryBtn}`}>
+                  Nossos Diferenciais
+                </Link>
               </div>
             </div>
-            
-            <div className="col-md-6 mb-4">
-              <div className={`${styles.infoCard} card h-100`}>
-                <div className="card-body">
-                  <h2 className={`${styles.cardTitle} card-title`}><Gear className={styles.icon} /> Tecnologia de Ponta</h2>
-                  <ul className="list-unstyled">
-                    <li><Tools className={styles.icon} /> Fundição avançada com capacidade de 2 ton/dia</li>
-                    <li><Bezier2 className={styles.icon} /> Usinagem de precisão com equipamentos CNC</li>
-                    <li><Lightning className={styles.icon} /> Soluções personalizadas em soldagem</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-            <div className="col-md-6 mb-4">
-              <div className={`${styles.infoCard} card h-100`}>
-                <div className="card-body">
-                  <h2 className={`${styles.cardTitle} card-title`}><Award className={styles.icon} /> Compromisso com a Qualidade</h2>
-                  <p className="card-text">Nossa busca incessante pela excelência nos levou a implementar rigorosos padrões de qualidade, garantindo produtos que superam as expectativas dos clientes mais exigentes.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="col-md-6 mb-4">
-              <div className={`${styles.infoCard} card h-100`}>
-                <div className="card-body">
-                  <h2 className={`${styles.cardTitle} card-title`}><People className={styles.icon} /> Parceria e Inovação</h2>
-                  <p className="card-text">Trabalhamos lado a lado com nossos clientes, desenvolvendo soluções inovadoras que impulsionam o crescimento mútuo e estabelecem novos padrões na indústria.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={`${styles.ctaSection} text-center mt-5`}>
-            <h2 className={styles.ctaTitle}>Pronto para Elevar seu Projeto ao Próximo Nível?</h2>
-            <p className={styles.ctaText}>Nossa expertise em metalurgia, combinada com tecnologia de ponta e compromisso com a qualidade, está à sua disposição. Vamos transformar suas ideias em realidade.</p>
-            <a href="/contato" className={`btn btn-lg ${styles.ctaButton}`}>
-              <Envelope className={`${styles.icon} me-2`} />
-              Entre em Contato Agora
-            </a>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Benefícios */}
+      <section id="beneficios" className={styles.benefitsSection}>
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className={styles.sectionTitle}>Por que escolher a LC Copper?</h2>
+            <p className={styles.sectionSubtitle}>
+              Experiência, inovação e tecnologia de ponta para atender os setores mais exigentes.
+            </p>
+          </div>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <div className={styles.benefitCard}>
+                <div className={styles.benefitIcon}><GraphUp /></div>
+                <h3>Excelência em Metalurgia</h3>
+                <p>Especialistas em ligas de cobre com aplicações na indústria automotiva e muito mais.</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className={styles.benefitCard}>
+                <div className={styles.benefitIcon}><Gear /></div>
+                <h3>Tecnologia de Ponta</h3>
+                <ul className={styles.benefitList}>
+                  <li><Tools style={{ verticalAlign: 'middle', color: '#1173c6' }} /> Fundição de até 2 ton/dia</li>
+                  <li><Bezier2 style={{ verticalAlign: 'middle', color: '#1173c6' }} /> Usinagem CNC de precisão</li>
+                  <li><Lightning style={{ verticalAlign: 'middle', color: '#1173c6' }} /> Soluções personalizadas em soldagem</li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className={styles.benefitCard}>
+                <div className={styles.benefitIcon}><Award /></div>
+                <h3>Qualidade Garantida</h3>
+                <p>Padrões rigorosos de qualidade que superam as expectativas dos clientes mais exigentes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Parcerias */}
+      <section className={styles.partnersSection}>
+        <div className="container text-center">
+          <h2 className={styles.sectionTitle}>
+            <People style={{ verticalAlign: 'middle' }} />
+            <span> Parceria e Inovação</span>
+          </h2>
+          <p className={styles.sectionSubtitle}>
+            Trabalhamos lado a lado com nossos clientes, desenvolvendo soluções que impulsionam o crescimento mútuo.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className={styles.ctaSection}>
+        <div className="container text-center">
+          <h2>Pronto para elevar seu projeto?</h2>
+          <p>
+            Nossa expertise em metalurgia está à sua disposição para transformar ideias em realidade.
+          </p>
+          <div className={styles.ctaButtons}>
+            <Link href="/contato" className={`btn ${styles.primaryBtn}`}>
+              Solicitar Orçamento
+            </Link>
+            <Link href="/produtos" className={`btn ${styles.secondaryBtn}`}>
+              Ver Produtos
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
-};
-
-export default CompanyOverview;
+}

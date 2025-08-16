@@ -1,25 +1,234 @@
 .serviceBgArea {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   padding: 80px 0;
-  margin-top: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease-out;
   position: relative;
   overflow: hidden;
 }
 
-.serviceBgArea::before {
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0c72c6;
+  margin-bottom: 1rem;
+}
+
+.title h3 {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.title h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0c72c6, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e9ecef" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-  opacity: 0.3;
-  z-index: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
 }
 
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(15, 116, 199, 0.4);
+  background: linear-gradient(135deg, #0f74c7, #003b8c);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .serviceItem {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceBgArea {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    padding: 30px 20px;
+  }
+  
+  .callToAction {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceBgArea {
+    padding: 40px 0;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+  
+  .serviceItem {
+    padding: 25px 15px;
+  }
+  
+  .ctaButton {
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Animações de entrada para os cards */
+.serviceItem {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .serviceItem {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.visible .serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.visible .serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.visible .serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.visible .serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.visible .serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.visible .serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .visible {
   opacity: 1;
 }
@@ -296,4 +505,1840 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.visible {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  border-radius: 2px;
+}
+
+.title h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #003b8c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  margin: 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(15, 116, 199, 0.4);
+  background: linear-gradient(135deg, #0f74c7, #003b8c);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .serviceItem {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceBgArea {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    padding: 30px 20px;
+  }
+  
+  .callToAction {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceBgArea {
+    padding: 40px 0;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+  
+  .serviceItem {
+    padding: 25px 15px;
+  }
+  
+  .ctaButton {
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Animações de entrada para os cards */
+.serviceItem {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .serviceItem {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.visible .serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.visible .serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.visible .serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.visible .serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.visible .serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.visible .serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.visible {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  border-radius: 2px;
+}
+
+.title h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #003b8c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  margin: 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(15, 116, 199, 0.4);
+  background: linear-gradient(135deg, #0f74c7, #003b8c);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .serviceItem {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceBgArea {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    padding: 30px 20px;
+  }
+  
+  .callToAction {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceBgArea {
+    padding: 40px 0;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+  
+  .serviceItem {
+    padding: 25px 15px;
+  }
+  
+  .ctaButton {
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Animações de entrada para os cards */
+.serviceItem {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .serviceItem {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.visible .serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.visible .serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.visible .serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.visible .serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.visible .serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.visible .serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.visible {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  border-radius: 2px;
+}
+
+.title h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #003b8c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  margin: 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(15, 116, 199, 0.4);
+  background: linear-gradient(135deg, #0f74c7, #003b8c);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .serviceItem {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceBgArea {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    padding: 30px 20px;
+  }
+  
+  .callToAction {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceBgArea {
+    padding: 40px 0;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+  
+  .serviceItem {
+    padding: 25px 15px;
+  }
+  
+  .ctaButton {
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Animações de entrada para os cards */
+.serviceItem {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .serviceItem {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.visible .serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.visible .serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.visible .serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.visible .serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.visible .serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.visible .serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.visible {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  border-radius: 2px;
+}
+
+.title h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #003b8c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  margin: 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(15, 116, 199, 0.4);
+  background: linear-gradient(135deg, #0f74c7, #003b8c);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .serviceItem {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceBgArea {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    padding: 30px 20px;
+  }
+  
+  .callToAction {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceBgArea {
+    padding: 40px 0;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+  
+  .serviceItem {
+    padding: 25px 15px;
+  }
+  
+  .ctaButton {
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Animações de entrada para os cards */
+.serviceItem {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .serviceItem {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.visible .serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.visible .serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.visible .serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.visible .serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.visible .serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.visible .serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.visible {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  border-radius: 2px;
+}
+
+.title h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #003b8c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  margin: 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(15, 116, 199, 0.4);
+  background: linear-gradient(135deg, #0f74c7, #003b8c);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .serviceItem {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceBgArea {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    padding: 30px 20px;
+  }
+  
+  .callToAction {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceBgArea {
+    padding: 40px 0;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+  
+  .serviceItem {
+    padding: 25px 15px;
+  }
+  
+  .ctaButton {
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Animações de entrada para os cards */
+.serviceItem {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .serviceItem {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.visible .serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.visible .serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.visible .serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.visible .serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.visible .serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.visible .serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.visible {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  border-radius: 2px;
+}
+
+.title h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #003b8c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  margin: 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(15, 116, 199, 0.4);
+  background: linear-gradient(135deg, #0f74c7, #003b8c);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .serviceItem {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceBgArea {
+    padding: 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .serviceItem {
+    padding: 30px 20px;
+  }
+  
+  .callToAction {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceBgArea {
+    padding: 40px 0;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+  
+  .serviceItem {
+    padding: 25px 15px;
+  }
+  
+  .ctaButton {
+    padding: 15px 30px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Animações de entrada para os cards */
+.serviceItem {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .serviceItem {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.visible .serviceItem:nth-child(1) { animation-delay: 0.1s; }
+.visible .serviceItem:nth-child(2) { animation-delay: 0.2s; }
+.visible .serviceItem:nth-child(3) { animation-delay: 0.3s; }
+.visible .serviceItem:nth-child(4) { animation-delay: 0.4s; }
+.visible .serviceItem:nth-child(5) { animation-delay: 0.5s; }
+.visible .serviceItem:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.visible {
+  opacity: 1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  border-radius: 2px;
+}
+
+.title h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: #003b8c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #6c757d;
+  margin-bottom: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+  margin: 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003b8c, #0f74c7);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceItem:hover::before {
+  transform: scaleX(1);
+}
+
+.textBox {
+  text-align: center;
+  position: relative;
+}
+
+.textBox i {
+  font-size: clamp(36px, 6vw, 48px);
+  color: #003b8c;
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.serviceItem:hover .textBox i {
+  transform: scale(1.1);
+  color: #0f74c7;
+}
+
+.textBox h3 {
+  font-size: clamp(18px, 3.5vw, 22px);
+  margin-bottom: 15px;
+  color: #003b8c;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.textBox p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+
+.callToAction {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #003b8c, #0f74c7);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(15, 116, 199, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+
+}
+
+.ctaButton:hover::before {
+  left: 0;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
 }

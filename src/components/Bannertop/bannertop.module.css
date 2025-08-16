@@ -1,33 +1,35 @@
 .HeaderNav {
   max-height: 800px;
   overflow: hidden;
-}
-
-.CarouselItem1 {
   position: relative;
+  background: linear-gradient(135deg, #0c72c6 0%, #0056b3 100%);
 }
 
 .textcarousel {
   position: relative;
   margin-left: 5%;
+  animation: slideInLeft 1s ease-out;
 }
 
 .textcarouselson {
   width: 80vw;
-  font-size: 50px;
+  font-size: 3.5rem;
+  font-weight: 700;
   position: absolute;
   margin-top: -54%;
   z-index: 15;
   color: white;
+  line-height: 1.2;
 }
 
 .textcarouselson2 {
   position: absolute;
   margin-top: -35%;
-  font-size: 24px;
+  font-size: 1.3rem;
   color: white;
   width: 70vw;
-  /* Corrigido para minúsculas */
+  opacity: 0.9;
+  line-height: 1.6;
 }
 
 .buttonsbanner {
@@ -40,9 +42,21 @@
 
 .listbutton {
   gap: 2em;
-  /* Corrigido para remover espaço extra */
   display: flex;
   flex-direction: row;
+}
+
+.listbutton button {
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.listbutton button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
 }
 
 .my-carousel {

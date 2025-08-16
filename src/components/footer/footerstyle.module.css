@@ -1,128 +1,213 @@
-/* footerstyle.module.css */
-
-/* Footer Area */
 .footerArea {
   width: 100%;
-  background-color: #1c1c1c;
+  background: linear-gradient(135deg, #0c1e3e 0%, #1c1c1c 100%);
   color: white;
   margin-top: 80px;
-  padding-top: 40px;
-  height: auto;
+  padding: 60px 0 0;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Footer Middle */
+.footerArea::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0c72c6, #0056b3);
+}
+
 .footerMiddle {
-  border-bottom: 2px solid #444444f0;
-  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 40px;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
+  padding: 0 20px;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 30px;
 }
 
 .col {
   flex: 1;
-  min-width: 250px; /* Minimal width for responsiveness */
-  margin: 15px;
+  min-width: 250px;
+  transition: transform 0.3s ease;
 }
 
+.col:hover {
+  transform: translateY(-5px);
+}
+
+.col h3 {
+  color: #0c72c6;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.col h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #0c72c6, #0056b3);
+  border-radius: 2px;
+}
 
 .description p {
-  margin: 10px 0;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin: 15px 0;
 }
 
-/* Social Icons */
 .socialIcons {
-  margin-top: 10px;
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
 }
 
 .socialIcons a {
-  color: #f39c12;
-  margin-right: 10px;
-  font-size: 20px;
-  transition: color 0.3s;
+  color: #fff;
+  background: linear-gradient(135deg, #0c72c6, #0056b3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .socialIcons a:hover {
-  color: #e67e22;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(12, 114, 198, 0.3);
 }
 
-/* Useful Links */
 .usefulLinks ul {
   list-style: none;
   padding: 0;
 }
 
 .usefulLinks li {
-  margin: 8px 0;
+  margin: 12px 0;
 }
 
 .usefulLinks a {
-  color: #fff;
+  color: #e0e0e0;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .usefulLinks a:hover {
-  color: #f39c12;
+  color: #0c72c6;
+  transform: translateX(5px);
 }
 
-/* Contact Information */
-.contact {
-  .footer-widget {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
-  }
-
-  .footer-widget i {
-    color: #f39c12;
-  }
-
-  .contact-info {
-    margin-top: 10px;
-  }
-
-  .contact-info p {
-    margin: 5px 0;
-  }
-
-  .contact-info a {
-    color: #f39c12;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .contact-info a:hover {
-    color: #e67e22;
-  }
-}
-
-/* Services */
-.services {
-  margin-top: 20px;
-}
-
-.serviceItem {
+.contact .contactInfo p {
   margin: 8px 0;
+  color: #e0e0e0;
 }
 
-/* Footer Bottom */
+.contact .contactInfo a {
+  color: #0c72c6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact .contactInfo a:hover {
+  color: #0056b3;
+}
+
+.services .serviceItem {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.services .serviceItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.services .serviceItem strong {
+  color: #0c72c6;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .footerBottom {
   padding: 20px 0;
-  background-color: #111;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .copyRight {
-  font-size: 14px;
   text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+.copyRight a {
+  color: #0c72c6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.copyRight a:hover {
+  color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .row {
+    gap: 20px;
+  }
+  
+  .col {
+    min-width: 100%;
+  }
+  
+  .socialIcons {
+    justify-content: center;
+  }
+  
+  .col h3 {
+    text-align: center;
+  }
+  
+  .col h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .usefulLinks ul {
+    text-align: center;
+  }
+  
+  .usefulLinks a {
+    justify-content: center;
+  }
+  
+  .contact .contactInfo {
+    text-align: center;
+  }
+  
+  .services .serviceItem {
+    text-align: center;
+  }
 }
 
 .footerMenu {

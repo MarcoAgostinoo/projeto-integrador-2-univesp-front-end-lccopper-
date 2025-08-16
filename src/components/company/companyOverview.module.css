@@ -1,207 +1,226 @@
-.companyOverview {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+/* companyOverview.module.css */
+
+/*
+  Paleta de Cores
+  - Azul Escuro: #05357e
+  - Azul Claro: #1173c6
+  - Vermelho Destaque: #b20001
+  - Cinza de Fundo: #f8f9fa
+  - Cinza de Texto: #495057
+  - Cinza do Card: #e9ecef
+*/
+
+.companyContainer {
+  background: #ffffff; /* Fundo branco e limpo para a maioria das seções */
+  color: #495057; /* Texto principal em cinza escuro para melhor legibilidade */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.topSection {
+/* === Hero Section === */
+.heroSection {
+  background: linear-gradient(135deg, #05357e 0%, #1173c6 100%);
+  color: #ffffff;
+  padding: 120px 0;
   text-align: center;
-  margin-bottom: 3rem;
-}
-
-.topSection h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.topSection p {
-  font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
-}
-
-.infoSection {
-  margin-bottom: 3rem;
-}
-
-.infoSection h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-}
-
-.infoSection p, .infoSection ul {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.6;
-}
-
-.infoSection ul {
-  padding-left: 1.5rem;
-  list-style-type: none;
-}
-
-.infoSection li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.mainTitle {
-  color: #003d92;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.subtitle {
-  color: #0f72be;
-  font-size: 1.2rem;
-}
-
-.infoCard {
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.infoCard:hover {
-  transform: translateY(-5px);
-}
-
-.cardTitle {
-  color: #003d92;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.icon {
-  color: #b00306;
-  margin-right: 0.5rem;
-  font-size: 1.2em;
-  animation: glow 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    filter: drop-shadow(0 0 2px #b00306);
-  }
-  to {
-    filter: drop-shadow(0 0 5px #b00306);
-  }
-}
-
-@media (max-width: 768px) {
-  .companyOverview {
-    padding: 1rem;
-  }
-
-  .topSection h1 {
-    font-size: 2rem;
-  }
-
-  .infoSection h2 {
-    font-size: 1.75rem;
-  }
-
-  .mainTitle {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .cardTitle {
-    font-size: 1.25rem;
-  }
-}
-
-.ctaSection {
-  margin-top: 4rem;
-  padding: 2rem;
-  background-color: #f0f8ff; /* Um azul bem claro para destacar a seção */
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.ctaTitle {
-  color: #003d92;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.ctaText {
-  color: #0f72be;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-.ctaButton {
-  background-color: #FF8C00; /* Laranja vibrante */
-  border-color: #FF8C00;
-  color: white;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.ctaButton:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
+.heroBadge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* === Botões === */
+.primaryBtn {
+  background: #b20001;
+  border: 2px solid #b20001;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.primaryBtn:hover {
+  background: #8e0000;
+  border-color: #8e0000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(178, 0, 1, 0.3);
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.secondaryBtn:hover {
+  background: #ffffff;
+  color: #05357e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* === Seção de Benefícios === */
+.benefitsSection {
+  padding: 100px 0;
+  background: #f8f9fa; /* Fundo cinza suave */
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #05357e;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.15rem;
+  color: #6c757d;
+  max-width: 650px;
+  margin: 0 auto 4rem;
+}
+
+.benefitCard {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: all 0.6s;
+  text-align: center;
+  border: 1px solid #dee2e6;
 }
 
-.ctaButton:hover:before {
-  left: 100%;
+.benefitCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-.ctaButton:hover, .ctaButton:focus {
-  background-color: #0056b3; /* Azul escuro ao hover */
-  border-color: #0056b3;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
+.benefitIcon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #05357e, #1173c6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.ctaButton:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 86, 179, 0.3);
+.benefitList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
 }
 
-@media (max-width: 768px) {
-  .ctaTitle {
-    font-size: 1.75rem;
-  }
-
-  .ctaText {
-    font-size: 1rem;
-  }
-
-  .ctaButton {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
+.benefitList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1rem;
+  color: #495057;
+  font-size: 1rem;
 }
 
+/* === Seção de Parcerias === */
+.partnersSection {
+  padding: 80px 0;
+  background: #e9ecef; /* Fundo cinza médio */
+}
 
+/* === Seção de CTA (Call to Action) === */
+.ctaSection {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #b20001, #e01212);
+  color: #ffffff;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Ajuste nos botões para a seção CTA */
+.ctaSection .primaryBtn {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #b20001;
+}
+
+.ctaSection .primaryBtn:hover {
+  background: #f0f0f0;
+  border-color: #f0f0f0;
+  color: #b20001;
+  transform: translateY(-3px);
+}
+
+.ctaSection .secondaryBtn {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.ctaSection .secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
