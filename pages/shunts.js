@@ -1,4 +1,4 @@
-import BannerOneimg from "../src/components/banneronepages/BannerOneimg";
+// ...existing code...
 import Footer from "../src/components/footer/Footer";
 import NavBar from "../src/components/navbar/NavBar";
 import Shuntsprod from "../src/components/products/Shuntsprod";
@@ -8,7 +8,7 @@ export default function Page() {
     return (
         <main>
             <NavBar />
-            <BannerOneimg title="Shunts" />
+// ...existing code...
             <Shuntsprod />
             <Footer />
         </main>

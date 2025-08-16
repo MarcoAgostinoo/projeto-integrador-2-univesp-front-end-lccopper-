@@ -5,9 +5,9 @@ import styles from "./page.module.css";
 import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
 import NavBar from "../src/components/navbar/NavBar";
-import Bannertop from "../src/components/Bannertop/Bannertop";
+import BannerTop from "../src/components/Bannertop/Bannertop";
 import Footer from "../src/components/footer/Footer";
-import BannerOneimg from "../src/components/banneronepages/BannerOneimg";
+// ...existing code...
 
 export default function Vagas() {
   const [vagasCdt, setVagasCdt] = useState([]);
@@ -93,7 +93,7 @@ export default function Vagas() {
   return (
     <div className={styles.vagastyle}>
       <NavBar />
-      <BannerOneimg title="Cadastro de Vagas" />
+// ...existing code...
       <form className={`container ${styles.container}`}>
         <h1>{editingVaga ? "Editar vaga" : "Cadastrar vaga"}</h1>
         <input type="text" name="nome" placeholder="Nome" ref={inputNome} />

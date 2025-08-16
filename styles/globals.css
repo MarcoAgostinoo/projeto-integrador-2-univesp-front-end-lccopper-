@@ -18,6 +18,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Suporte a dark mode para overlay-gradient */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --overlay-gradient: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.8) 100%);
+  }
+}
+
 /* Remove o estilo padrão de listas */
 ul,
 ol {

@@ -6,7 +6,7 @@ import api from "../services/api";
 import NavBar from "../src/components/navbar/NavBar";
 import Footer from "../src/components/footer/Footer";
 import styles from './trabalhe.module.css';
-import BannerOneimg from "../src/components/banneronepages/BannerOneimg";
+// ...existing code...
 import CareerOpportunity from "../src/components/carrear/CareerOpportunity";
 
 // Ícones SVG inline para melhor performance
@@ -190,7 +190,7 @@ export default function Vagas() {
     return (
         <div className={styles.vagastyle}>
             <NavBar />
-            <BannerOneimg title="Trabalhe Conosco" />
+// ...existing code...
             
             <div className={styles.vagasContainer}>
                 <div className={styles.pageHeader}>

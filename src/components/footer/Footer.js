@@ -70,7 +70,7 @@ const Footer = () => {
               <span style={{ fontSize: '14px', color: '#FFFFFF' }}>
                 LC Copper Metalúrgica Eireli. Desenvolvido por:  
                 <Link href="https://www.kisite.com.br/" target="_blank" style={{ color: '#FFFFFF' }}>
-                    ProjetoIntegrador2-Univesp - Kisite
+                    - Kisite
                 </Link>
               </span>
             </div>

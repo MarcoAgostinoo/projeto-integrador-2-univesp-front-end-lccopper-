@@ -29,7 +29,7 @@ export default function Bannertop() {
         ref={carouselRef} 
       > 
         <div className="carousel-inner"> 
-          {['home01.webp', 'trabalhe01.webp', 'usinagem01.png'].map((imgSrc, index) => (
+          {['home01.webp', 'trabalhe01.webp', 'usinagem01.jpeg'].map((imgSrc, index) => (
             <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={imgSrc}>
               <img src={imgSrc} className="d-block w-100" alt="Descrição da imagem" loading="lazy" />
               <div className={styles.textcarousel}>

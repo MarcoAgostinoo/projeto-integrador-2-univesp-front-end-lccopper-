@@ -1,7 +1,7 @@
 import NavBar from "../src/components/navbar/NavBar";
 import Footer from "../src/components/footer/Footer";
 import Pinosguiabuchas from "../src/components/products/Pinosguiabuchas";
-import BannerOneimg from "../src/components/banneronepages/BannerOneimg";
+// ...existing code...
 
 
 
@@ -10,7 +10,7 @@ export default function Page ( ) {
     return (
         <main>
             <NavBar />
-            <BannerOneimg title="Pinos Guia E Buchas" />
+// ...existing code...
             <Pinosguiabuchas />
             <Footer />
         </main>
