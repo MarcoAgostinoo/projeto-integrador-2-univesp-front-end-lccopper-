@@ -45,8 +45,6 @@
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
 }
 
 .heroSection::before {
@@ -65,10 +63,14 @@
   position: relative;
   z-index: 2;
   width: 100%;
+  pointer-events: auto;
 }
 
 .heroContent {
   padding-right: 2rem;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .heroBadge {
@@ -122,6 +124,15 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
+
+.heroButtons a {
+  text-decoration: none !important;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 20;
 }
 
 .primaryBtn {
@@ -135,6 +146,9 @@
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  position: relative;
+  z-index: 15;
+  cursor: pointer;
 }
 
 .primaryBtn:hover {
@@ -142,6 +156,7 @@
   box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
   color: #333;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .secondaryBtn {
@@ -155,6 +170,9 @@
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  position: relative;
+  z-index: 15;
+  cursor: pointer;
 }
 
 .secondaryBtn:hover {
@@ -162,10 +180,13 @@
   color: #0c72c6;
   transform: translateY(-2px);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .heroImage {
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .mainImage {
