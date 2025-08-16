@@ -1,33 +1,164 @@
 .catalogContainer {
-  margin: 100px auto;
+  margin: 80px auto;
   text-align: center;
+  max-width: 1200px;
 }
 
 .catalogTitle {
-  font-size: 35px;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #0c72c6;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
 }
 
 .productCard {
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  overflow: hidden;
 }
 
 .productCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.productCard:hover .productImage {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .productImage {
-  border-radius: 10px 10px 0 0; /* Rounded corners for the image */
+  border-radius: 16px 16px 0 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Hover effects for overlay */
+.productCard:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 114, 198, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px 16px 0 0;
+}
+
+.overlayText {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Button hover effects */
+.btn-outline-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(12, 114, 198, 0.3);
+}
+
+/* Category badge styles */
+.categoryBadge {
+  background: linear-gradient(135deg, #0c72c6, #0056b3);
+  border: none;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* Call to action section */
+.ctaSection {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 24px;
+  padding: 3rem;
+  margin-top: 4rem;
+}
+
+.ctaTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0c72c6;
+  margin-bottom: 1rem;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #0c72c6, #0056b3);
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(12, 114, 198, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(12, 114, 198, 0.4);
+  background: linear-gradient(135deg, #0056b3, #004085);
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
+  .catalogContainer {
+    margin: 40px auto;
+    padding: 0 1rem;
+  }
+  
   .catalogTitle {
-    font-size: 25px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ctaSection {
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .ctaTitle {
+    font-size: 1.5rem;
   }
 }
+
+@media (max-width: 576px) {
+  .catalogTitle {
+    font-size: 1.75rem;
+  }
+  
+  .productCard {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Animation for cards appearing */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.productCard {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.productCard:nth-child(1) { animation-delay: 0.1s; }
+.productCard:nth-child(2) { animation-delay: 0.2s; }
+.productCard:nth-child(3) { animation-delay: 0.3s; }
+.productCard:nth-child(4) { animation-delay: 0.4s; }
+.productCard:nth-child(5) { animation-delay: 0.5s; }
+.productCard:nth-child(6) { animation-delay: 0.6s; }

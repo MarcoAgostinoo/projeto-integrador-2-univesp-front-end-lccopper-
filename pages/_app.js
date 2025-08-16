@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import Script from 'next/script';
 import Head from 'next/head'; // Importando Head
 

@@ -1,60 +1,259 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css"; // Importa o Bootstrap
-import styles from "./productstyles.module.css"; // Importa estilos personalizados
+import Image from "next/image";
+import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./productstyles.module.css";
 
 export default function Discosprod() {
   return (
-    <div className={`container-fluid ${styles.container}`}>
-      <div className="text-center mb-5">
-        <h1 className={`display-4 text-primary ${styles.titleH1}`}>
-          Discos para Soldagem por Costura LC Copper: Eficiência e Qualidade em suas Mãos
-        </h1>
-      </div>
+    <div className={styles.eletrodosContainer}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className="container">
+          <div className="row align-items-center min-vh-75">
+            <div className="col-lg-6">
+              <div className={styles.heroContent}>
+                <span className={styles.heroBadge}>Soldagem por Costura</span>
+                <h1 className={styles.heroTitle}>
+                  Discos para Soldagem por Costura
+                </h1>
+                <p className={styles.heroSubtitle}>
+                  Eficiencia e qualidade em suas maos com discos de alta performance para soldagem por costura
+                </p>
+                <div className={styles.heroFeatures}>
+                  <div className={styles.featureItem}>
+                    <i className="fas fa-circle"></i>
+                    <span>Sob Medida</span>
+                  </div>
+                  <div className={styles.featureItem}>
+                    <i className="fas fa-trophy"></i>
+                    <span>Alta Qualidade</span>
+                  </div>
+                  <div className={styles.featureItem}>
+                    <i className="fas fa-bolt"></i>
+                    <span>Alta Performance</span>
+                  </div>
+                </div>
+                <div className={styles.heroButtons}>
+                  <Link href="/contato" className={`btn ${styles.primaryBtn}`}>
+                    Solicitar Orçamento
+                  </Link>
+                  <Link href="#especificacoes" className={`btn ${styles.secondaryBtn}`}>
+                    Ver Especificações
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className={styles.heroImage}>
+                <Image
+                  src="/discos/disco1.jpg"
+                  alt="Discos para Soldagem por Costura"
+                  width={600}
+                  height={500}
+                  className={styles.mainImage}
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div className={`row align-items-center ${styles.texttop}`}>
-        <div className="col-md-6 mb-4">
-          <img
-            src="/discos/disco1.jpg"
-            alt="eletrodo"
-            className={`img-fluid rounded ${styles.imgprod}`}
-          />
+      {/* Benefits Section */}
+      <section className={styles.benefitsSection}>
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className={styles.sectionTitle}>Por que escolher os discos LC Copper?</h2>
+            <p className={styles.sectionSubtitle}>
+                             Materiais de excelencia e precisao garantida para suas operacoes de soldagem
+            </p>
+          </div>
+          
+          <div className="row g-4">
+            <div className="col-md-4">
+              <div className={styles.benefitCard}>
+                <div className={styles.benefitIcon}>
+                  <i className="fas fa-gem"></i>
+                </div>
+                <h3>Materiais de Alta Performance</h3>
+                <p>
+                  Trabalhamos com ligas de cobre de excelencia, como CUCR, CUCRZR e CUCOBE, que garantem condutividade eletrica superior.
+                </p>
+                <ul className={styles.benefitList}>
+                  <li>Condutividade eletrica superior</li>
+                  <li>Resistência ao desgaste</li>
+                  <li>Durabilidade excepcional</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="col-md-4">
+              <div className={styles.benefitCard}>
+                <div className={styles.benefitIcon}>
+                  <i className="fas fa-bullseye"></i>
+                </div>
+                <h3>Precisao e Confiabilidade</h3>
+                <p>
+                  Nossos discos sao fabricados com rigoroso controle de qualidade, assegurando dimensoes precisas e desempenho consistente.
+                </p>
+                <ul className={styles.benefitList}>
+                  <li>Dimensoes precisas</li>
+                  <li>Desempenho consistente</li>
+                  <li>Controle rigoroso de qualidade</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="col-md-4">
+              <div className={styles.benefitCard}>
+                <div className={styles.benefitIcon}>
+                  <i className="fas fa-cogs"></i>
+                </div>
+                <h3>Versatilidade e Personalizacao</h3>
+                <p>
+                  Atendemos a uma ampla gama de aplicacoes e desenvolvemos discos sob medida para suas necessidades especificas.
+                </p>
+                <ul className={styles.benefitList}>
+                  <li>Ampla gama de aplicacoes</li>
+                  <li>Desenvolvimento sob medida</li>
+                  <li>Personalizacao completa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="col-md-6">
-          <h2 className={`text-white ${styles.titleH2}`}>A LC Copper oferece a você discos para soldagem por costura de alta qualidade, projetados para atender às suas necessidades específicas.</h2>
-          <p className={`text-light ${styles.titleShadow}`}>
-            Fabricamos discos sob medida ou a partir de desenhos, garantindo a perfeita adequação ao seu processo de soldagem.
-          </p>
-          <h5 className="text-warning">Por que escolher os discos LC Copper?</h5>
-          <ul className={`text-light ${styles.titleShadow}`}>
-            <li><strong>Materiais de Alta Performance:</strong> Trabalhamos com ligas de cobre de excelência, como CUCR, CUCRZR e CUCOBE, que garantem condutividade elétrica superior, resistência ao desgaste e durabilidade excepcional.</li>
-            <li><strong>Precisão e Confiabilidade:</strong> Nossos discos são fabricados com rigoroso controle de qualidade, assegurando dimensões precisas e desempenho consistente em suas operações de soldagem.</li>
-            <li><strong>Versatilidade:</strong> Atendemos a uma ampla gama de aplicações de soldagem por costura, desde chapas metálicas até a produção de motores elétricos.</li>
-            <li><strong>Personalização:</strong> Desenvolvemos discos sob medida para atender às suas necessidades específicas de tamanho, liga e aplicação.</li>
-          </ul>
-        </div>
-      </div>
+      </section>
 
-      <div className={`row align-items-center ${styles.texttop}`}>
-        <div className="col-md-6 mb-4">
-          <img
-            src="/discos/disco2.jpg"
-            alt="eletrodo"
-            className={`img-fluid rounded ${styles.imgprod}`}
-          />
+      {/* Technical Specifications */}
+      <section id="especificacoes" className={styles.specsSection}>
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <div className={styles.specsContent}>
+                <h2 className={styles.sectionTitle}>Especificacoes Tecnicas</h2>
+                <p className={styles.sectionSubtitle}>
+                                     Discos projetados para maxima eficiencia em soldagem por costura.
+                </p>
+                
+                <div className={styles.specsGrid}>
+                  <div className={styles.specItem}>
+                    <h4>Ligas</h4>
+                    <p>CUCR, CUCRZR, CUCOBE</p>
+                  </div>
+                  <div className={styles.specItem}>
+                    <h4>Condutividade</h4>
+                    <p>Elétrica superior</p>
+                  </div>
+                  <div className={styles.specItem}>
+                    <h4>Resistência</h4>
+                    <p>Ao desgaste excepcional</p>
+                  </div>
+                  <div className={styles.specItem}>
+                    <h4>Fabricacao</h4>
+                    <p>Sob medida ou desenhos</p>
+                  </div>
+                  <div className={styles.specItem}>
+                    <h4>Aplicações</h4>
+                    <p>Chapas metálicas e motores</p>
+                  </div>
+                  <div className={styles.specItem}>
+                    <h4>Certificação</h4>
+                    <p>ISO 9001:2015</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="col-lg-6">
+              <div className={styles.specsImage}>
+                <Image
+                  src="/discos/disco2.jpg"
+                  alt="Especificações Técnicas dos Discos"
+                  width={500}
+                  height={400}
+                  className={styles.specImage}
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="col-md-6">
-          <h2 className={`text-white ${styles.titleH2}`}>Com a LC Copper, você tem a garantia de:</h2>
-          <ul className={`text-light ${styles.titleShadow}`}>
-            <li>Produtos de alta qualidade</li>
-            <li>Atendimento personalizado</li>
-            <li>Soluções sob medida</li>
-            <li>Compromisso com a sua satisfação</li>
-          </ul>
-          <p className={`text-light ${styles.titleShadow}`}>
-            Entre em contato conosco hoje mesmo e descubra como os discos para soldagem por costura LC Copper podem elevar a qualidade e a eficiência do seu processo de soldagem!
-          </p>
+      </section>
+
+      {/* Applications Section */}
+      <section className={styles.applicationsSection}>
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className={styles.sectionTitle}>Aplicações Industriais</h2>
+            <p className={styles.sectionSubtitle}>
+              Nossos discos são utilizados em diversos setores industriais
+            </p>
+          </div>
+          
+          <div className="row g-4">
+            <div className="col-md-3 col-sm-6">
+              <div className={styles.applicationCard}>
+                <div className={styles.appIcon}>
+                  <i className="fas fa-car"></i>
+                </div>
+                <h4>Automotivo</h4>
+                <p>Soldagem de chapas metálicas</p>
+              </div>
+            </div>
+            
+            <div className="col-md-3 col-sm-6">
+              <div className={styles.applicationCard}>
+                <div className={styles.appIcon}>
+                  <i className="fas fa-cog"></i>
+                </div>
+                <h4>Motores Elétricos</h4>
+                <p>Produção de componentes</p>
+              </div>
+            </div>
+            
+            <div className="col-md-3 col-sm-6">
+              <div className={styles.applicationCard}>
+                <div className={styles.appIcon}>
+                  <i className="fas fa-industry"></i>
+                </div>
+                <h4>Metalurgia</h4>
+                <p>Processos industriais</p>
+              </div>
+            </div>
+            
+            <div className="col-md-3 col-sm-6">
+              <div className={styles.applicationCard}>
+                <div className={styles.appIcon}>
+                  <i className="fas fa-tools"></i>
+                </div>
+                <h4>Manutenção</h4>
+                <p>Reparos e manutenção</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className={styles.ctaSection}>
+        <div className="container">
+          <div className={styles.ctaContent}>
+            <h2>Pronto para elevar sua soldagem?</h2>
+            <p>
+              Entre em contato conosco hoje mesmo e descubra como os discos para soldagem por costura LC Copper podem elevar a qualidade e a eficiencia do seu processo de soldagem!
+            </p>
+            <div className={styles.ctaButtons}>
+              <Link href="/contato" className={`btn ${styles.primaryBtn}`}>
+                Solicitar Orçamento
+              </Link>
+              <Link href="/produtos" className={`btn ${styles.secondaryBtn}`}>
+                Ver Outros Produtos
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
